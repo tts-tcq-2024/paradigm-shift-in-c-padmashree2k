@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <assert.h>
 
+int is_Within_Range(float value, float minimum, float maximum) {
+  return (value >= minimum && value <= maximum);
+}
+
 int check_scope(float value, float minimum, float maximum, const char* errorMessage) {
   if (!is_Within_Range(value, minimum, maximum)) {
     printf("%s\n", errorMessage);
@@ -9,11 +13,6 @@ int check_scope(float value, float minimum, float maximum, const char* errorMess
   return 1;
 }
 
-int is_Within_Range(float value, float minimum, float maximum) {
-  return (value >= minimum && value <= maximum);
-}
-
-// Function that checks if battery parameters are within their respective ranges
 int batteryIsOk(float temperature, float soc, float chargeRate) {
   int Tremp_Ok = check_scope(temperature, 0, 45, "The temperature is out of range...");
   int Soc_Ok = check_scope(soc, 20, 80, "The state of Charge is out of range...");
