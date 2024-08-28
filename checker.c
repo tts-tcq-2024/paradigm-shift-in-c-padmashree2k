@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <assert.h>
 
-int batteryIsOk(float temperature, float soc, float chargeRate) {
-  if(temperature < 0 || temperature > 45) {
-    printf("Temperature out of range!\n");
-    return 0;
-  } else if(soc < 20 || soc > 80) {
-    printf("State of Charge out of range!\n");
-    return 0;
-  } else if(chargeRate > 0.8) {
-    printf("Charge Rate out of range!\n");
+int check_scope(float value, float minimum, float maximum, const char* errorMessage) {
+  if(value < minimum || value > maximum) {
+    printf("%s\n", errorMessage);
     return 0;
   }
   return 1;
+}
+
+int batteryIsOk(float temperature, float soc, float chargeRate) {
+  int Tremp_Ok = check_scope(temperature, 0, 45, "The temperature is out of range...");
+  int Soc_Ok = check_scope(soc, 20, 80, "The state of Charge is out of range...");
+  int ChargeRate_Ok = check_scope(chargeRate, 0, 0.8, "The charge Rate is out of range...");
+
+  return Tremp_Ok && Soc_Ok && ChargeRate_Ok;
 }
 
 int main() {
