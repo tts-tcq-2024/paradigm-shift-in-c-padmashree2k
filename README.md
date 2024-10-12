@@ -59,3 +59,11 @@ Shorten the Semantic distance
 - Functional to express relation between input and output
 - Object oriented to encapsulate state with actions
 - Apect oriented to capture repeating aspects
+
+**Experience with Extension Implementation**
+The early warning feature was straightforward to implement by using the modular approach. By separating the warning logic into the range_check.c module, adding new parameters or adjusting warning levels can be done with minimal changes to the existing structure.
+
+The modularity ensures that new extensions or customer-driven requirements can be integrated seamlessly in the future.****
+The early warning feature was straightforward to implement by using the modular approach. By separating the warning logic into the range_check.c module, adding new parameters or adjusting warning levels can be done with minimal changes to the existing structure.
+
+The modularity ensures that new extensions or customer-driven requirements can be integrated seamlessly in the future.
